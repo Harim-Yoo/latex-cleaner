@@ -18,4 +18,6 @@ class LatexCleaner {
     }
 }
 
+const clean = (text) => new LatexCleaner().clean(text);
+module.exports = clean;
 module.exports = LatexCleaner;
