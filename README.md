@@ -17,6 +17,7 @@ npm install @jamesyhr/latex-cleaner
 
 ## Usage
 
+# Old version
 ```
 const clean = require('@jamesyhr/latex-cleaner');
 
@@ -27,5 +28,18 @@ console.log(cleanText);
 // Output: "Problem 1 Solve this: $x^2 + y^2 = 1$"
 ```
 
+# Version 0.1.0+
+
+```
+const LatexCleaner = require('@jamesyhr/latex-cleaner');
+
+const cleaner = new LatexCleaner();
+
+const dirty = "\\noindent Hello \\\\ World \t \\bigskip";
+const clean = cleaner.clean(dirty);
+
+console.log(clean); // "Hello World"
+
+```
 ## License
 MIT
