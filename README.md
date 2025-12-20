@@ -39,7 +39,8 @@ const dirty = "\\noindent Hello \\\\ World \t \\bigskip";
 const clean = cleaner.clean(dirty);
 
 console.log(clean); // "Hello World"
-
 ```
+You can use either method. If you check my index.js file, you can call the old "function" method and the new "class" method. Enjoy!
+
 ## License
 MIT
