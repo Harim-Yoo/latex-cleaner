@@ -9,9 +9,10 @@ class LatexCleaner {
 
         return target
           .replace(
-            /\\n|\\bigskip|\\medskip|\\smallskip|\\newpage|\\vfill|\\null|\\noindent|\\hfill|\t|\\\\/g,
+            /\\(noindent|bigskip|medskip|smallskip|newpage|vfill|null|hfill|n|pagebreak|question)/g,
             ""
           )
+          .replace(/[\t\r\n]/g, "")
           .replace(/\\\\/g, " ")
           .replace(/\s+/g, " ")
           .trim();
@@ -19,5 +20,8 @@ class LatexCleaner {
 }
 
 const clean = (text) => new LatexCleaner().clean(text);
-module.exports = clean;
-module.exports = LatexCleaner;
+
+module.exports = {
+  clean: clean,
+  LatexCleaner: LatexCleaner
+};
