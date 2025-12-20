@@ -27,11 +27,22 @@ const cleanText = clean(rawLatex);
 console.log(cleanText);
 // Output: "Problem 1 Solve this: $x^2 + y^2 = 1$"
 ```
+***IF YOU WERE TO UPDATE TO A NEWER VERSION, USE THE FOLLOWING RULES.***
 
 # Version 0.1.0+
+One may call just a function, or all class. 
 
 ```
-const LatexCleaner = require('@jamesyhr/latex-cleaner');
+const { clean } = require('@jamesyhr/latex-cleaner');
+
+const rawData = "SOMETHING YOU WANT TO TEST";
+
+const cleanedData = clean(rawData);
+console.log(cleanedData);
+```
+
+```
+const { LatexCleaner }= require('@jamesyhr/latex-cleaner');
 
 const cleaner = new LatexCleaner();
 
@@ -40,7 +51,6 @@ const clean = cleaner.clean(dirty);
 
 console.log(clean); // "Hello World"
 ```
-You can use either method. If you check my index.js file, you can call the old "function" method and the new "class" method. Enjoy!
 
 ## License
 MIT
