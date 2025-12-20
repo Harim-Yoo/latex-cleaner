@@ -1,0 +1,19 @@
+{
+  "name": "@jamesyhr/latex-cleaner",
+  "version": "0.1.0",
+  "description": "Simple utility to remove layout tags from LaTeX strings when writing a textbook file.",
+  "main": "index.js",
+  "keywords": [
+    "latex",
+    "cleaner",
+    "parser",
+    "math",
+    "textbook"
+  ],
+  "author": "Harim Yoo",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}
