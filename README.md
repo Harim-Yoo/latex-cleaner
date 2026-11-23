@@ -52,5 +52,36 @@ const clean = cleaner.clean(dirty);
 console.log(clean); // "Hello World"
 ```
 
+## Options
+
+```js
+const { clean, LatexCleaner } = require('@jamesyhr/latex-cleaner');
+
+clean(text, {
+  preserveMath: true,    // keep $...$, $$...$$, \(...\), \[...\], align/equation/... untouched
+  stripComments: false,  // remove `%` comments (off by default: PDF text often has literal "50%")
+  removeCommands: ['myskip', { name: 'mybox', args: 1 }], // extra commands to remove
+  keepCommands: ['centering'],                              // default commands to keep
+});
+
+const cleaner = new LatexCleaner({ stripComments: true });
+cleaner.clean(text);
+```
+
+A custom command can declare what it consumes: `star` (`\cmd*`), `opt` (`[...]`), `args` (number of `{...}`), or `glue` (`\vskip 1em plus 2pt`).
+
+### Behavior notes
+- Only whole command names are matched, so `\nabla`, `\neq`, `\nu`, `\newcommand` are never cut.
+- Layout commands are removed together with their arguments: `\vspace*{1cm}`, `\pagebreak[4]`, `\question[5]`, `\vskip 1em`, `\\[2mm]`.
+- `\\` inside math (matrices, `aligned`, ...) is kept; outside math it becomes a space.
+- Real newlines/tabs become spaces, so `"Hello\nWorld"` → `"Hello World"`.
+- `\$`, `\%`, an unmatched `$` and `\verb|...|` / `verbatim` content are left as-is.
+
+## Testing
+
+```bash
+npm test
+```
+
 ## License
 MIT
